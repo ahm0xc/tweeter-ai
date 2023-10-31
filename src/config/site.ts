@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Twittlify",
+  name: "Tweetlify",
   description:
     "An open source application built using the new router, server components and everything new in Next.js 13.",
   url: "https://saas-starter-demo.vercel.app/",

@@ -16,7 +16,7 @@
     "lint": "next lint",
     "format:write": "prettier ./ --write \"**.{ts,tsx,md,mdx,js,jsx,json,yaml,cjs,mjs}\" --cache",
     "format:check": "prettier ./ --check \"**.{ts,tsx,md,mdx,js,jsx,json,yaml,cjs,mjs}\" --cache",
-    "postinstall": "prisma migrate deploy && prisma generate"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@auth/core": "^0.16.1",
