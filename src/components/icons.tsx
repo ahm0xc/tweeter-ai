@@ -17,6 +17,7 @@ import { Copy } from "@phosphor-icons/react/dist/ssr/Copy"
 import { Check } from "@phosphor-icons/react/dist/ssr/Check"
 import { ClockCounterClockwise } from "@phosphor-icons/react/dist/ssr/ClockCounterClockwise"
 import { Trophy } from "@phosphor-icons/react/dist/ssr/Trophy"
+import { Sidebar } from "@phosphor-icons/react/dist/ssr/Sidebar"
 
 export const Icons = {
   //
@@ -35,6 +36,7 @@ export const Icons = {
   check: Check,
   history: ClockCounterClockwise,
   pricing: Trophy,
+  sidebar: Sidebar,
   //
   //  Auth & Providers
   //

@@ -44,7 +44,7 @@ export default function Sidebar({ className, ...props }: Props) {
                 Generate
               </Button>
             </Link>
-            <Link href="/keys">
+            <Link href="/history">
               <Button
                 variant="ghost"
                 size="sm"
