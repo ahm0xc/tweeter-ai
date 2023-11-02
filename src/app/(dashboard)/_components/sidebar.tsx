@@ -32,7 +32,7 @@ export default function Sidebar({ className, ...props }: Props) {
       <div className="space-y-4">
         <div className="px-6 py-2">
           <div className="space-y-1">
-            <Link href="/overview">
+            <Link href="/generate">
               <Button
                 variant="ghost"
                 size="sm"

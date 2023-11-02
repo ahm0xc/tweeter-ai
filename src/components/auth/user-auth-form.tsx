@@ -31,12 +31,14 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isGoogleLoading, setIsGoogleLoading] = React.useState<boolean>(false)
   const searchParams = useSearchParams()
 
+  const callbackUrl = searchParams?.get("from") || "/"
+
   async function onSubmit(data: FormData) {
     setIsLoading(true)
 
     const signInResult = await signIn("email", {
       email: data.email.toLocaleLowerCase().trim(),
-      callbackUrl: searchParams?.get("from") || "/",
+      callbackUrl,
       redirect: false,
     })
 
@@ -105,7 +107,9 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         icon={<Icons.google className="w-5 h-5 mr-3" weight="duotone" />}
         onClick={() => {
           setIsGoogleLoading(true)
-          signIn("google")
+          signIn("google", {
+            callbackUrl
+          })
         }}
       >
         Login with Google

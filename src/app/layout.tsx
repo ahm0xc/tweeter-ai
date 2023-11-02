@@ -2,6 +2,7 @@ import "../styles/globals.css"
 
 import type { Metadata } from "next"
 import { Nunito as FontSans } from "next/font/google"
+import { GeistSans } from "geist/font"
 
 import { siteConfig } from "~/config/site"
 import { cn } from "~/lib/utils"
@@ -69,7 +70,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={cn("min-h-screen font-sans antialiased", fontSans.variable)}
+        className={cn(
+          "min-h-screen font-sans antialiased",
+          fontSans.variable,
+          GeistSans.variable
+        )}
       >
         <SessionProvider>
           <ThemeProvider

@@ -43,6 +43,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cohere-ai": "^6.2.2",
+    "geist": "^1.0.0",
     "langchain": "^0.0.176",
     "lucide-react": "^0.287.0",
     "next": "13.5.6",

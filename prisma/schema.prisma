@@ -6,10 +6,24 @@ generator client {
 }
 
 datasource db {
-  provider = "cockroachdb"
-  url      = env("DATABASE_URL")
+  provider     = "cockroachdb"
+  url          = env("DATABASE_URL")
   // directUrl = env("DIRECT_URL")
   relationMode = "prisma"
+}
+
+model Tweet {
+  id      String  @id @default(cuid())
+  userid  String
+  user    User    @relation(fields: [userid], references: [id])
+  content String
+  topic   String
+  style   String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userid])
 }
 
 model User {
@@ -20,6 +34,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  tweets        Tweet[]
 }
 
 model Account {

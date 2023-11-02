@@ -3,9 +3,7 @@ import { getToken } from "next-auth/jwt"
 import { withAuth, type NextRequestWithAuth } from "next-auth/middleware"
 
 export const config = {
-  matcher: [
-    //e.g. "/dashboard/:path*
-  ],
+  matcher: ["/generate", "/history"],
 }
 
 async function middleware(req: NextRequestWithAuth) {

@@ -10,8 +10,8 @@ import { cn, copyText } from "~/lib/utils"
 import { Skeleton } from "~/components/ui/skeleton"
 
 import { Icons } from "./icons"
-import { Button } from "./ui/button"
 import { Particles } from "./particles"
+import { Button } from "./ui/button"
 
 interface Props extends ComponentPropsWithoutRef<"div"> {
   content: string
@@ -29,20 +29,34 @@ export default function TweetPlaceholder({
   return (
     <div
       className={cn(
-        "p-6 rounded-md bg-stone-200/40 dark:bg-stone-900/40 border max-w-xl relative",
+        "p-6 rounded-md bg-stone-200/40 dark:bg-stone-900/40 border h-fit max-w-xl relative",
         className
       )}
       {...props}
     >
-      <Particles className="absolute inset-0 opacity-70 -z-10" quantity={70} color="#2563eb" />
-      <Button size="icon" className="absolute top-3 right-3 h-8 w-8" variant="outline" onClick={()=> {
-        copyText(content)
-        setIsTextCopied(true);
-        setTimeout(() => {
-          setIsTextCopied(false);
-        }, 2000);
-      }} disabled={!content}>
-        {isTextCopied ? <Icons.check className="h-4 w-4 text-green-800 dark:text-green-500" /> : <Icons.copy className="h-4 w-4" />}
+      <Particles
+        className="absolute inset-0 opacity-70 -z-10"
+        quantity={70}
+        color="#2563eb"
+      />
+      <Button
+        size="icon"
+        className="absolute top-3 right-3 h-8 w-8"
+        variant="outline"
+        onClick={() => {
+          copyText(content)
+          setIsTextCopied(true)
+          setTimeout(() => {
+            setIsTextCopied(false)
+          }, 2000)
+        }}
+        disabled={!content}
+      >
+        {isTextCopied ? (
+          <Icons.check className="h-4 w-4 text-green-800 dark:text-green-500" />
+        ) : (
+          <Icons.copy className="h-4 w-4" />
+        )}
       </Button>
       <div className="flex gap-2">
         <Image

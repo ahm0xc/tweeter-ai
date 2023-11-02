@@ -6,7 +6,7 @@ import { Button } from "~/components/ui/button"
 
 export default async function ProfileCard() {
   const { user } = await getCurrentUser()
-  
+
   return (
     <div>
       <Button variant="ghost" className="justify-start px-3 w-full">
