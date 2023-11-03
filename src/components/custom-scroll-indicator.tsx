@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import { useMouse } from "@uidotdev/usehooks"
 import { motion } from "framer-motion"
 
 type Props = {}
