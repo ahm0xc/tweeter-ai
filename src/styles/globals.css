@@ -3,8 +3,13 @@
 @tailwind utilities;
 
 html,
-body {
+body,
+:root {
   height: 100%;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 @layer base {

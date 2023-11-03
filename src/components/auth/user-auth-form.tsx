@@ -108,7 +108,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         onClick={() => {
           setIsGoogleLoading(true)
           signIn("google", {
-            callbackUrl
+            callbackUrl,
           })
         }}
       >

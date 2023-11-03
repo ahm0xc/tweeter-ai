@@ -69,14 +69,13 @@ export async function POST(request: Request) {
         userid: user?.id,
         content: answer.response,
         topic: parseResult.data.topic,
-        style: parseResult.data.style
+        style: parseResult.data.style,
       },
     })
 
     return new Response(JSON.stringify(answer.response), {
       status: 201,
     })
-    
   } catch (error) {
     console.error("🚀 ~ file: route.ts:40 ~ POST ~ error:", error)
     return new Response("Something went wrong", {

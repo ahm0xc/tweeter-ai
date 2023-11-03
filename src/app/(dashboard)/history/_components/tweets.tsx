@@ -29,7 +29,11 @@ export default async function Tweets({ className, ...props }: Props) {
     <section className={cn("mt-8", className)} {...props}>
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
         {tweets.map((tweet) => (
-          <TweetPlaceholder className="w-full max-w-none" key={tweet.id} content={tweet.content} />
+          <TweetPlaceholder
+            className="w-full max-w-none"
+            key={tweet.id}
+            content={tweet.content}
+          />
         ))}
       </div>
     </section>

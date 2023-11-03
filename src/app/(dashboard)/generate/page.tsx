@@ -3,7 +3,7 @@ import { Icons } from "~/components/icons"
 import GeneratorWrapper from "../_components/generator-wrapper"
 import Heading from "../_components/heading"
 
-export default function OverviewPage() {
+export default function GeneratePage() {
   return (
     <div className="container py-8">
       <Heading
