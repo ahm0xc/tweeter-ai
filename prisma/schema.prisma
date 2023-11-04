@@ -13,9 +13,9 @@ datasource db {
 }
 
 model Tweet {
-  id      String  @id @default(cuid())
+  id      String @id @default(cuid())
   userid  String
-  user    User    @relation(fields: [userid], references: [id])
+  user    User   @relation(fields: [userid], references: [id])
   content String
   topic   String
   style   String
@@ -35,6 +35,8 @@ model User {
   accounts      Account[]
   sessions      Session[]
   tweets        Tweet[]
+
+  credit Int @default(20)
 }
 
 model Account {

@@ -3,6 +3,8 @@ import Image from "next/image"
 import Link from "next/link"
 import Logo from "~/../public/tweetlify-logo.png"
 
+import { siteConfig } from "~/config/site"
+
 type Props = {}
 
 export default function Header({}: Props) {
@@ -11,7 +13,8 @@ export default function Header({}: Props) {
       <div className="flex px-4 md:px-10 items-center max-w-7xl mx-auto">
         {/* logo */}
         <div>
-          <Link href="/">
+          <Link href="/" aria-label="logo">
+            <span className="sr-only">{siteConfig.name} Logo</span>
             <Image
               src={Logo}
               width={60}

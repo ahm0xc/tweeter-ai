@@ -79,7 +79,9 @@ export default function GenerateForm({
       )
       toast({
         variant: "destructive",
-        description: "Something went wrong",
+        title: "Oops! Something went wrong.",
+        description:
+          "You might not have enough credits or the server might be facing some difficulties.",
       })
     } finally {
       setIsFetching(false)

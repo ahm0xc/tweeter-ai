@@ -7,6 +7,7 @@ import { GeistSans } from "geist/font"
 import { siteConfig } from "~/config/site"
 import { cn } from "~/lib/utils"
 import { Toaster } from "~/components/ui/toaster"
+import ReactQueryProvider from "~/components/react-query-provider"
 import SessionProvider from "~/components/session-provider"
 import { ThemeProvider } from "~/components/theme-provider"
 
@@ -71,7 +72,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen font-sans antialiased overflow-x-hidden",
+          "min-h-screen font-sans antialiased w-full overflow-x-hidden",
           fontSans.variable,
           GeistSans.variable
         )}
@@ -83,7 +84,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <ReactQueryProvider>{children}</ReactQueryProvider>
           </ThemeProvider>
         </SessionProvider>
         <Toaster />

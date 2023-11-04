@@ -1,5 +1,7 @@
 import { ComponentPropsWithoutRef, Suspense } from "react"
+import Image from "next/image"
 import Link from "next/link"
+import Logo from "~/../public/tweetlify-logo.png"
 
 import { siteConfig } from "~/config/site"
 import { cn } from "~/lib/utils"
@@ -10,8 +12,6 @@ import { Icons } from "~/components/icons"
 import ProfileCard from "./profile-card"
 import ProfileCardSkeleton from "./profile-card-skeleton"
 import ThemeToggler from "./theme-toggler"
-import Image from "next/image"
-import Logo from "~/../public/tweetlify-logo.png"
 
 interface Props extends ComponentPropsWithoutRef<"aside"> {}
 
@@ -73,7 +73,7 @@ export default function Sidebar({ className, ...props }: Props) {
               className="justify-start w-full"
               icon={<Icons.pricing className="w-4 h-4 mr-2" />}
             >
-              Pricing
+              Buy Credits
               <Badge variant="secondary" className="ml-2">
                 coming soon
               </Badge>
@@ -83,18 +83,6 @@ export default function Sidebar({ className, ...props }: Props) {
       </div>
       <div className="absolute inset-x-0 mx-6 bottom-8 flex flex-col gap-y-2">
         <ThemeToggler />
-        <Link href="/pricing">
-          <Button
-            variant="ghost"
-            size="sm"
-            className="justify-start w-full"
-            icon={<Icons.pro className="w-5 h-5 mr-2" weight="duotone" />}
-          >
-            <p className="bg-gradient-to-r from-primary to-primary/70 from-70% bg-clip-text text-transparent to-80%">
-              Upgrade to pro
-            </p>
-          </Button>
-        </Link>
         <Suspense fallback={<ProfileCardSkeleton />}>
           <ProfileCard />
         </Suspense>

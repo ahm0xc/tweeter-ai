@@ -18,10 +18,12 @@ import { Command } from "@phosphor-icons/react/dist/ssr/Command"
 import { Copy } from "@phosphor-icons/react/dist/ssr/Copy"
 import { GoogleLogo } from "@phosphor-icons/react/dist/ssr/GoogleLogo"
 import { Heart } from "@phosphor-icons/react/dist/ssr/Heart"
+import { Leaf } from "@phosphor-icons/react/dist/ssr/Leaf"
 import { MicrophoneStage } from "@phosphor-icons/react/dist/ssr/MicrophoneStage"
 import { MoonStars } from "@phosphor-icons/react/dist/ssr/MoonStars"
 import { Repeat } from "@phosphor-icons/react/dist/ssr/Repeat"
 import { Sidebar } from "@phosphor-icons/react/dist/ssr/Sidebar"
+import { SketchLogo } from "@phosphor-icons/react/dist/ssr/SketchLogo"
 import { Sparkle } from "@phosphor-icons/react/dist/ssr/Sparkle"
 import { Spinner } from "@phosphor-icons/react/dist/ssr/Spinner"
 import { SunDim } from "@phosphor-icons/react/dist/ssr/SunDim"
@@ -50,6 +52,8 @@ export const Icons = {
   microphoneStage: MicrophoneStage,
   clock: Clock,
   chartLine: ChartLine,
+  diamond: SketchLogo,
+  leaf: Leaf,
   //
   //  Auth & Providers
   //

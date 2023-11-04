@@ -8,25 +8,28 @@ import { Particles } from "~/components/particles"
 
 const tiers = [
   {
-    name: "Hobby",
+    name: "Bronze",
     price: 1,
     credit: 50,
+    icon: Icons.leaf,
     description: "Try with your next awesome tweet.",
-    features: ["Generations", "History"],
+    features: ["50 Generations", "History"],
     cta: "Get Started for Free",
   },
   {
-    name: "Pro",
+    name: "Silver",
     price: 9,
     credit: 500,
+    icon: Icons.sparkle,
     description: "Everything in Hobby, plus higher limits.",
-    features: ["Generations", "History"],
+    features: ["500 Generations", "History"],
     cta: "Try Pro for 14 days",
   },
   {
-    name: "Enterprise",
+    name: "Platinum",
     price: 29,
     credit: 5000,
+    icon: Icons.diamond,
     description: "For influencer with more dedication.",
     features: ["Personal Contact", "Uses Analytics"],
     cta: "Scale Up",
@@ -79,15 +82,28 @@ export const Pricing: React.FC = () => {
             {tiers.map((tier, i) => (
               <div
                 key={tier.name}
-                className="h-full md:col-span-6  lg:col-span-4 group/item"
-                data-aos="fade-down"
+                className="h-full relative md:col-span-6  lg:col-span-4 group/item"
               >
-                <HighlighterItem>
-                  <div className="relative h-full bg-zinc-900 rounded-[inherit] z-20 overflow-hidden">
+                {/* chip */}
+                {i === 1 ? (
+                  <div className="absolute z-30 font-semibold py-1 px-3 rounded-full bg-zinc-200 text-zinc-900 text-sm border border-zinc-100 -top-3 left-1/2 -translate-x-1/2">
+                    Most Popular
+                  </div>
+                ) : null}
+                <HighlighterItem
+                  className={
+                    i == 0
+                      ? "before:bg-yellow-200/20"
+                      : i == 1
+                      ? "before:bg-zinc-200/30"
+                      : "before:bg-purple-200/30"
+                  }
+                >
+                  <div className="relative h-full bg-stone-900 rounded-[inherit] z-20 overflow-hidden">
                     <Particles
                       className="absolute inset-0 -z-10 opacity-10 group-hover/item:opacity-100 transition-opacity duration-1000 ease-in-out"
                       quantity={(i + 1) ** 2 * 10}
-                      color={["#34d399", "#fde047", "#f43f5e"][i]}
+                      color={["#CD7F32", "#c0c0c0", "#9900ff"][i]}
                       vy={-0.2}
                     />
                     <div className="flex flex-col">
@@ -101,18 +117,21 @@ export const Pricing: React.FC = () => {
                       {/* Text */}
 
                       <div className="p-8">
-                        <h3
+                        <p
                           id={tier.name}
-                          className="text-lg font-semibold leading-8"
+                          className="text-lg font-semibold leading-8 flex items-center"
                         >
-                          {tier.name}
-                        </h3>
+                          {tier.name} Plan{" "}
+                          <tier.icon
+                            className="h-5 w-5 inline-block ml-2"
+                            weight="duotone"
+                          />
+                        </p>
 
-                        <h3 className="inline-flex items-baseline pb-1 mt-6 font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-200/60 via-zinc-200 to-zinc-200/60">
+                        <p className="inline-flex items-baseline pb-1 mt-6 font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-200/60 via-zinc-200 to-zinc-200/60">
                           <span className="text-4xl">{tier.credit}</span>
                           <span className="text-base ml-1">credit </span>
-                          <span className="text-lg ml-1"> / ${tier.price}</span>
-                        </h3>
+                        </p>
                         <p className="mt-4 text-sm leading-6 text-zinc-400">
                           {tier.description}
                         </p>
@@ -124,9 +143,9 @@ export const Pricing: React.FC = () => {
                             <li key={feature} className="flex gap-x-3">
                               <Icons.check
                                 className={cn("h-6 w-5 flex-none", {
-                                  "text-emerald-400": i === 0,
-                                  "text-yellow-300": i === 1,
-                                  "text-rose-500": i === 2,
+                                  "text-yellow-400": i === 0,
+                                  "text-zinc-200": i === 1,
+                                  "text-purple-500": i === 2,
                                 })}
                                 aria-hidden="true"
                               />
@@ -134,11 +153,12 @@ export const Pricing: React.FC = () => {
                             </li>
                           ))}
                         </ul>
-                        <Button className="mt-16 w-full justify-center " variant={i == 1 ? "default": "outline"}>
-                          Get Started{" "}
-                          <Icons.arrowRight
-                            className="w-4 h-4 tracking-normal text-primary-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1"
-                          />
+                        <Button
+                          className="mt-16 w-full justify-center font-semibold"
+                          variant={i == 1 ? "default" : "outline"}
+                        >
+                          Buy for ${tier.price}{" "}
+                          <Icons.arrowRight className="w-4 h-4 tracking-normal text-primary-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1" />
                         </Button>
                       </div>
                     </div>

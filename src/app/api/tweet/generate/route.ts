@@ -1,3 +1,4 @@
+import { revalidateTag } from "next/cache"
 import { env } from "~/env.mjs"
 import { ConversationChain } from "langchain/chains"
 import { Cohere } from "langchain/llms/cohere"
@@ -39,7 +40,7 @@ export async function POST(request: Request) {
   try {
     const chatPrompt = ChatPromptTemplate.fromMessages([
       SystemMessagePromptTemplate.fromTemplate(
-        `You are a informative AI named twitlify who generates twitter posts. Now create a captivating and thought-provoking Twitter post on the given topic in a ${parseResult.data.style} way. Share your insights or predictions about the topic. Don't put unnecessary talks and just provide answer of information according to the topic. Make sure that it should be short (200 characters or less).`
+        `You are a informative AI named twitlify who generates twitter posts. Now create a captivating and thought-provoking Twitter post on the given topic in a ${parseResult.data.style} way. Share your insights or predictions about the topic. Don't put unnecessary talks and just provide answer of information according to the topic. Make sure that it should be short (200 letter or less).`
       ),
       HumanMessagePromptTemplate.fromTemplate("{input}"),
     ])
@@ -49,7 +50,7 @@ export async function POST(request: Request) {
       llm: new Cohere({
         apiKey: COHERE_API_KEY,
         temperature: 0.9,
-        maxTokens: 65,
+        maxTokens: 100,
         maxRetries: 1,
       }),
     })
@@ -61,6 +62,27 @@ export async function POST(request: Request) {
     if (!answer.response) {
       return new Response("Failed to generate tweet", {
         status: 500,
+      })
+    }
+
+    const { count } = await db.user.updateMany({
+      where: {
+        id: user.id,
+        credit: {
+          gte: 1,
+        },
+      },
+      data: {
+        credit: {
+          decrement: 1,
+        },
+      },
+    })
+    revalidateTag("credits")
+
+    if (count <= 0) {
+      return new Response("Your don't have enough credit", {
+        status: 400,
       })
     }
 

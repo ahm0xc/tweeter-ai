@@ -1,6 +1,7 @@
 import React from "react"
 import Image from "next/image"
 import GlowTop from "~/../public/glow-top.svg"
+import ScreenShot from "~/../public/screenshot.png"
 
 import { Icons } from "~/components/icons"
 
@@ -34,7 +35,7 @@ export default function Features({}: Props) {
   ]
 
   return (
-    <section>
+    <section className="overflow-x-hidden">
       <div className="relative max-w-6xl px-4 mx-auto sm:px-6">
         <div
           className="absolute inset-0 -z-10 -mx-28 rounded-t-[3rem] pointer-events-none overflow-hidden"
@@ -56,24 +57,21 @@ export default function Features({}: Props) {
             {/* Section content */}
             <div className="flex flex-col max-w-xl mx-auto md:max-w-none md:flex-row md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-8 space-y-reverse md:space-y-0">
               {/* Content */}
-              <div
-                className="order-1 md:w-7/12 lg:w-1/2 md:order-none max-md:text-center"
-                data-aos="fade-down"
-              >
+              <div className="order-1 md:w-7/12 lg:w-1/2 md:order-none max-md:text-center">
                 {/* Content #1 */}
                 <div>
                   <div className="inline-flex pb-3 font-medium text-transparent bg-clip-text bg-gradient-to-br via-40% from-white/80 via-white  to-amber-400">
                     Don&apos;t drown in alerts
                   </div>
                 </div>
-                <h3 className="pb-3 text-4xl capitalize font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-200/60 via-zinc-200 to-zinc-200/60">
+                <p className="pb-3 text-4xl capitalize font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-200/60 via-zinc-200 to-zinc-200/60">
                   Save valuable time
-                </h3>
+                </p>
                 <p className="mb-8 text-lg text-zinc-400">
                   Effortlessly craft engaging, valuable, remarkable tweets in
                   seconds seamlessly with our AI tool.
                 </p>
-                <dl className="max-w-xl grid grid-cols-1 gap-4 lg:max-w-none">
+                <div className="max-w-xl grid grid-cols-1 gap-4 lg:max-w-none">
                   {features.map((feature) => (
                     <div
                       key={feature.name}
@@ -90,16 +88,17 @@ export default function Features({}: Props) {
                       </p>
                     </div>
                   ))}
-                </dl>
+                </div>
               </div>
 
               <div className="flex max-w-2xl mx-auto mt-16 md:w-5/12 lg:w-1/2 sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
                 <div className="z-10 flex-none max-w-3xl sm:max-w-5xl lg:max-w-none">
                   <Image
-                    src="/screenshot.png"
+                    src={ScreenShot}
                     alt="App screenshot"
                     width={2432}
                     height={1442}
+                    quality={60}
                     className="w-[76rem] z-10 rounded-xl border border-white/10"
                   />
                 </div>
