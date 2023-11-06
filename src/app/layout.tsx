@@ -2,6 +2,7 @@ import "../styles/globals.css"
 
 import type { Metadata } from "next"
 import { Nunito as FontSans } from "next/font/google"
+import Loglib from "@loglib/tracker/react"
 import { GeistSans } from "geist/font"
 
 import { siteConfig } from "~/config/site"
@@ -88,6 +89,11 @@ export default function RootLayout({
           </ThemeProvider>
         </SessionProvider>
         <Toaster />
+        <Loglib
+          config={{
+            id: "tweetlify",
+          }}
+        />
       </body>
     </html>
   )
