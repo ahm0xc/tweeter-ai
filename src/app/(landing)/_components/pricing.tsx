@@ -1,10 +1,10 @@
 import { useMemo } from "react"
 
 import { cn } from "~/lib/utils"
-import { Button } from "~/components/ui/button"
 import { HighlighterItem, HighlightGroup } from "~/components/highlighter"
 import { Icons } from "~/components/icons"
 import { Particles } from "~/components/particles"
+import PricingActionButton from "./pricing-action-button"
 
 const tiers = [
   {
@@ -153,13 +153,13 @@ export const Pricing: React.FC = () => {
                             </li>
                           ))}
                         </ul>
-                        <Button
+                        <PricingActionButton
                           className="mt-16 w-full justify-center font-semibold"
                           variant={i == 1 ? "default" : "outline"}
                         >
                           Buy for ${tier.price}{" "}
                           <Icons.arrowRight className="w-4 h-4 tracking-normal text-primary-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1" />
-                        </Button>
+                        </PricingActionButton>
                       </div>
                     </div>
                   </div>
